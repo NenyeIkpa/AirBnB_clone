@@ -13,6 +13,7 @@ class BaseModel:
         """ initialization function for an object of the BaseModel class """
 
         if kwargs:
+            """ create basemodel from dictionary """
             for key, value in kwargs.items():
                 if key == "id":
                     self.id = value
