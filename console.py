@@ -9,7 +9,6 @@ import models
 class HBNBCommand(cmd.Cmd):
     """ receives and processes command line inputs"""
     prompt = '(hbnb)'
-    BaseModel = models.base_model.BaseModel
 
     def do_EOF(self, line):
         """ end of file """
@@ -29,7 +28,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         if line == 'BaseModel':
-            bm = BaseModel()
+            bm = models.base_model.BaseModel()
             print('{}'.format(bm.id))
         else:
             print("** class doesn't exist **")
@@ -68,7 +67,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
 
     def do_destroy(self, line):
-        """ deletes an instance """
+        """ deletes an instance based on class name """
         if line:
             if " " not in line:
                 if line != 'BaseModel':
@@ -88,6 +87,36 @@ class HBNBCommand(cmd.Cmd):
                     if second == value.id:
                         del all_obj[key]
                         models.storage.save()
+                        return
+                print("** no instance found **")
+        else:
+            print("** class name missing **")
+
+    def do_update(self, line):
+        """ updates an instance based on class name """
+        if line:
+            if " " not in line:
+                if line != 'BaseModel':
+                    print("** class doesn't exist **")
+                    return
+            inputs = line.split(' ')
+            if inputs[0] != 'BaseModel':
+                print("** class doesn't exist **")
+                return
+            if len(inputs) == 1:
+                print("** instance id missing **")
+                return
+            elif len(inputs) == 2:
+                print("** attribute name missing **")
+                return
+            elif len(inputs) == 3:
+                print("** value missing **")
+                return
+            else:
+                all_obj = models.storage.all()
+                for key, value in all_obj.items():
+                    if value.id == inputs[1]:
+                        print("alohaa!!!")
                         return
                 print("** no instance found **")
         else:
