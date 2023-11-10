@@ -3,6 +3,7 @@
     A command line processor module
 """
 import cmd
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
@@ -21,9 +22,16 @@ class HBNBCommand(cmd.Cmd):
         """ called when an empty line entred to prompt. prints a new prompt"""
         pass
 
-    def do_rejoice(self, line):
-        """ shout halleluyah!"""
-        print("Hallelulyahhhhh!!!!!")
+    def do_create(self, line):
+        """ creates an instance of the BaseModel class """
+        if not line:
+            print("** class name missing **")
+            return
+        if line == 'BaseModel':
+            bm = BaseModel()
+            print('{}'.format(bm.id))
+        else:
+            print("** class doesn't exist **")
 
 
 if __name__ == "__main__":
