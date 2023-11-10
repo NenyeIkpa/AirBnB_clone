@@ -3,12 +3,13 @@
     A command line processor module
 """
 import cmd
-from models.base_model import BaseModel
+import models
 
 
 class HBNBCommand(cmd.Cmd):
     """ receives and processes command line inputs"""
     prompt = '(hbnb)'
+    BaseModel = models.base_model.BaseModel
 
     def do_EOF(self, line):
         """ end of file """
@@ -33,6 +34,43 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
+    def do_all(self, line):
+        """ prints all instances """
+        if line:
+            if line != "BaseModel":
+                print("** class doesn't exist **")
+                return
+        all_obj = models.storage.all()
+        for key, value in all_obj.items():
+            print(value)
+
+    def do_show(self, line):
+        """ prints a string representation of a BaseModel instance """
+        if line:
+            if " " not in line:
+                if line != 'BaseModel':
+                    print("** class doesn't exist **")
+                    return
+            try:
+                first, second = line.split(' ')
+                if first != 'BaseModel':
+                    print("** class doesn't exist **")
+                    return
+            except ValueError:
+                print("** instance id missing **")
+                return
+            else:
+                all_obj = models.storage.all()
+                for key, value in all_obj.items():
+                    if value.id == second:
+                        print(value)
+        else:
+            print("** class name missing **")
+
 
 if __name__ == "__main__":
-    HBNBCommand().cmdloop()
+    import sys
+    if len(sys.argv) > 1:
+        HBNBCommand().onecmd(''.join(sys.argv[1:]))
+    else:
+        HBNBCommand().cmdloop()
