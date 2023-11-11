@@ -114,10 +114,10 @@ class HBNBCommand(cmd.Cmd):
                 return
             else:
                 all_obj = models.storage.all()
-                for key, value in all_obj.items():
-                    if value.id == inputs[1]:
-                        print("alohaa!!!")
-                        return
+                key = inputs[0] + '.' + inputs[1]
+                setattr(all_obj[key], inputs[2], inputs[3])
+                models.storage.save()
+                return
                 print("** no instance found **")
         else:
             print("** class name missing **")
