@@ -27,7 +27,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
-        """ called when an empty line entred to prompt. prints a new prompt"""
+        """ called when an empty line entered to prompt. prints a new prompt"""
         pass
 
     def do_create(self, line):
