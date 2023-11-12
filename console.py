@@ -6,7 +6,12 @@ import cmd
 from models.base_model import BaseModel
 from models.user import User
 from models import storage
-classnames = {'BaseModel': BaseModel, 'User': User}
+from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -58,7 +63,6 @@ class HBNBCommand(cmd.Cmd):
         """ prints a string representation of a BaseModel instance """
         if line:
             inputs = line.split(" ")
-            print(inputs)
             if len(inputs) == 0:
                 print("** class name missing **")
                 return
@@ -134,6 +138,16 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class name missing **")
 
+
+classnames = {
+        'BaseModel': BaseModel,
+        'User': User,
+        "Place": Place,
+        "City": City,
+        "State": State,
+        "Amenity": Amenity,
+        "Review": Review
+        }
 
 if __name__ == "__main__":
     import sys
