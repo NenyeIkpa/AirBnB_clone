@@ -4,7 +4,10 @@
 """
 import json
 import os
+import models
 from models.base_model import BaseModel
+from models.user import User
+
 
 class FileStorage:
     """ saves objects to and reloads objects from file """
@@ -47,5 +50,6 @@ class FileStorage:
 
 # A dictionary mapping class names to their corresponding classes
 class_map  = {
-        "BaseModel": BaseModel
+        "BaseModel": BaseModel,
+        "User": User
         }
