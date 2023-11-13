@@ -24,4 +24,4 @@ class TestBaseModel(unittest.TestCase):
         self.assertNotEqual(bm2.id, '')
         self.assertEqual(bm2.name, 'My First Model')
         self.assertEqual(bm2.my_number, 89)
-        # self.assertEqual(bm2.__class__, class <'models.base_model.BaseModel'>")
+        self.assertEqual(type(bm2), BaseModel)
