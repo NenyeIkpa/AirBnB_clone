@@ -12,7 +12,7 @@ from models.amenity import Amenity
 
 class TestAmenity_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Amenity class."""
-    def test_amenity_attrs_and_tyoes(self):
+    def test_amenity_attrs_and_types(self):
         """ test for attrs and types in Amenity class """
         self.assertEqual(Amenity, type(Amenity()))
         self.assertIn(Amenity(), models.storage.all().values())

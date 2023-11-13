@@ -19,7 +19,6 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
 
-
     def all(self):
         """ returns the dictionary __objects """
         return self.__objects
@@ -53,8 +52,9 @@ class FileStorage:
         except FileNotFoundError:
             pass
 
+
 # A dictionary mapping class names to their corresponding classes
-class_map  = {
+class_map = {
         "BaseModel": BaseModel,
         "User": User,
         "Place": Place,
