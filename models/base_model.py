@@ -7,7 +7,6 @@ from datetime import datetime
 import models
 
 
-
 class BaseModel:
     """ parent class, BaseModel """
 
@@ -36,7 +35,7 @@ class BaseModel:
 
     def __str__(self):
         """ returns a string representation the object """
-        return "{} ({}) {}".format(
+        return "[{}] ({}) {}".format(
                 self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
