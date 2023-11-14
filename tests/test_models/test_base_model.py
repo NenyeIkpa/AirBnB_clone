@@ -8,6 +8,7 @@ from time import sleep
 import unittest
 from models.base_model import BaseModel
 from datetime import datetime
+from freezegun import freeze_time
 
 
 class TestBaseModel(unittest.TestCase):
@@ -91,6 +92,23 @@ class TestBaseModel_save(unittest.TestCase):
             os.rename("file.json", "tmp")
         except IOError:
             pass
+
+    def test_save(self):
+        bm = BaseModel()
+        self.assertTrue(
+                datetime.now() != datetime(2023, 9, 28, 21, 8, 6, 151711)
+                )
+        with freeze_time("2023-09-28 21:08:06.151711"):
+            self.assertTrue(
+                    datetime.now() == datetime(2023, 9, 28, 21, 8, 6, 151711)
+                    )
+            bm.save()
+            self.assertTrue(
+                    bm.updated_at == datetime(2023, 9, 28, 21, 8, 6, 151711)
+                    )
+        self.assertTrue(
+                datetime.now() != datetime(2023, 9, 28, 21, 8, 6, 151711)
+                )
 
     def test_save_first_time(self):
         bm = BaseModel()
