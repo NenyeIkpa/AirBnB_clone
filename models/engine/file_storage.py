@@ -33,7 +33,7 @@ class FileStorage:
         obj_dict = {}
         for key, obj in self.__objects.items():
             obj_dict[key] = obj.to_dict()
-            with open(self.__file_path, "w") as f:
+            with open(self.__file_path, "w", encoding="UTF-8") as f:
                 json.dump(obj_dict, f)
 
     def reload(self):
@@ -41,7 +41,7 @@ class FileStorage:
         # if os.path.exists(FileStorage.__file_path):
         try:
             """ reads the JSON file,filename, and creates an object from it """
-            with open(self.__file_path, "r") as the_file:
+            with open(self.__file_path, "r", encoding="UTF-8") as the_file:
                 obj_dict = json.load(the_file)
                 for key, value in obj_dict.items():
                     classname, obj_id = key.split('.')
