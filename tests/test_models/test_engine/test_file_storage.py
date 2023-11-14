@@ -104,6 +104,14 @@ class TestFileStorage_methods(unittest.TestCase):
         self.assertIn("Review." + rvw.id, models.storage.all().keys())
         self.assertIn(rvw, models.storage.all().values())
 
+    def test_reload_file(self):
+        """
+            Tests method: reload (reloads objects from string file)
+        """
+        with open("tmp", "r") as f:
+            for line in f:
+                self.assertNotEqual(line, "{}")
+
     def test_new_with_args(self):
         with self.assertRaises(TypeError):
             models.storage.new(BaseModel(), 1)

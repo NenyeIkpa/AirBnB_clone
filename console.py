@@ -77,10 +77,12 @@ class HBNBCommand(cmd.Cmd):
                     all_obj = storage.all()
                     for key, value in all_obj.items():
                         if value.id == inputs[1]:
-                            print(value)
+                            # print(value)
                             return
                     print("** no instance found **")
                     return
+            print("** class doesn't exist **")
+            return
         else:
             print("** class name missing **")
 
