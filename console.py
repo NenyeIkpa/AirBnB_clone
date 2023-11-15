@@ -38,6 +38,7 @@ class HBNBCommand(cmd.Cmd):
         for name in classnames:
             if line == name:
                 bm = classnames[name]()
+                bm.save()
                 print('{}'.format(bm.id))
                 return
         print("** class doesn't exist **")
