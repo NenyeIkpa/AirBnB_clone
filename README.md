@@ -1,21 +1,19 @@
 # AirBnB clone - The Console.
 
 #### How To Use:
-##### To launch:
-./console.py
+Clone the Repository
 
-##### To exit:
-$ quit
-or
-$ <Ctrl + D>
+##### To launch:
+$ ./console.py
+
+##### To close:
+$ quit (OR <Ctrl + D>)
 
 ##### To create:
 $ create <class_name>
 
 ##### To display all:
-$ all
-or
-$ all <class_name>
+$ all OR all <class_name>
 
 ##### To display a specific data:
 $ show <class_name> <id>
