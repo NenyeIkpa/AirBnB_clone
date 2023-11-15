@@ -105,6 +105,10 @@ class HBNBCommand(cmd.Cmd):
             else:
                 all_obj = storage.all()
                 for key, value in all_obj.items():
+                    split_key = key.split('.')
+                    if split_key[0] != first:
+                         print("** no instance found **")
+                         return;
                     if second == value.id:
                         del all_obj[key]
                         storage.save()
