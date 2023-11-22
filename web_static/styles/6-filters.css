@@ -18,6 +18,8 @@
 .amenities {    height: 100%;   
                 width: 25%;
                 margin: 0px auto;
+		position: relative;
+		left: -60px;
         }
 
 .locations h3,
@@ -39,6 +41,9 @@ ul {
 }
 
 .amenities .popover {
+			position: relative;
+			left: -8px;
+			text-indent: 54px;
 			padding-right: 0px;
 		}
 
