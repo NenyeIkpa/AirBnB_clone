@@ -41,10 +41,8 @@ ul {
 }
 
 .amenities .popover {
-			position: relative;
 			left: -8px;
 			text-indent: 54px;
-			padding-right: 0px;
 		}
 
 .popover {
@@ -55,6 +53,8 @@ ul {
 		display: none;
 		margin-left: -68px;
 		padding: 20px;
+		z-index: 5;
+		position: relative;
 	}
 
 .popover h2 {
