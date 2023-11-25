@@ -131,9 +131,28 @@
 .places article .amenities ul,
 .places article .reviews ul {
 				list-style: none;
-				padding: 0;
 				margin-top: -28px;
+				padding: 0;
 			}
+
+.places  article .amenities li {
+				 background-repeat: no-repeat;
+				 background-position: center left;
+				 background-size: 5%;
+				 padding: 8px 30px;
+			}
+
+.places  article .amenities ul .tv {
+					background-image: url("../images/icon_tv.png");
+				 }
+
+.places  article .amenities ul .wifi {
+                                         background-image: url("../images/icon_wifi.png");
+                                 }
+
+.places  article .amenities ul .pets {
+                                         background-image: url("../images/icon_pets.png");
+                                 }
 
 .places article .reviews h3 {
 				font-size: 14px;
